@@ -1,17 +1,17 @@
-<h1>Stylists</h1>
+<h1>Clients</h1>
 
-<p>Current Stylists:</p>
+<p>Current Clients:</p>
 
 <ul>
-  <% @stylist.each() do |stylist| %>
-  <li><%= stylist.name() %></li>
+  <% @clients.each() do |client| %>
+  <li><%= client.name() %></li>
   <% end %>
 
-<p>Enter a new stylist:</p>
+<p>Enter a new client:</p>
 
-<form action='/stylists' method='post'>
-  <label for='name'>Stylist Name</label>
+<form action='/clients' method='post'>
+  <label for='name'>Clients Name</label>
   <input id='name' name='name' type='text'>
 
-  <button type='submit'>Add Stylist</button>
+  <button type='submit'>Add Client</button>
 </form>
