@@ -57,4 +57,13 @@ describe("client") do
       expect(test_client.stylist()).to(eq([test_stylist, test_stylist2]))
     end
   end
+
+  describe("#update") do
+    it("lets you update clients in the database") do
+      client = Client.new({:name => "Fred", :id => nil})
+      client.save()
+      client.update({:name => "Gary"})
+      expect(client.name()).to(eq("Gary"))
+    end
+  end
 end

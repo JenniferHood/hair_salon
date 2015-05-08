@@ -12,9 +12,6 @@ get('/') do
   erb(:index)
 end
 
-get('/clients/new') do
-  erb(:client_form)
-end
 
 post("/client") do
   name = params.fetch("name")
@@ -23,14 +20,14 @@ post("/client") do
   erb(:success)
 end
 
-get("/clients") do
-  @clients = Client.all()
-  erb(:clients)
-end
-
 get("/clients/:id") do
   @clients = Client.find(params.fetch("id").to_i())
   erb(:client)
+end
+
+get("/clients/:id/edit") do
+  @clients = Client.find(params.fetch(:id).to_i())
+  erb(:client_edit)
 end
 
 post("/stylists") do
