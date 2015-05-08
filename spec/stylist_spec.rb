@@ -25,4 +25,12 @@ describe(Stylist) do
       expect(test_stylist.name()).to(eq("Monica"))
     end
   end
+
+  describe("#==") do
+    it("is the same stylist if the stylist has the same name") do
+      stylist1 = Stylist.new({:name => "Evelyn"})
+      stylist2 = Stylist.new({:name => "Evelyn"})
+      expect(task1).to(eq(task2))
+    end
+  end
 end
