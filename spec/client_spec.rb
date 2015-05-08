@@ -1,14 +1,4 @@
-require("rspec")
-require("pg")
-require("client")
-
-DB = PG.connect({:dbname => "salon_system_test"})
-
-RSpec.configure do |config|
-  config.after(:each) do
-    DB.exec("DELETE FROM clients *;")
-  end
-end
+require("spec_helper")
 
 describe("client") do
   describe(".all")do

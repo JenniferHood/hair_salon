@@ -1,17 +1,6 @@
-require("rspec")
-require("pg")
-require("stylist")
-
-DB = PG.connect({:dbname => "salon_system_test"})
-
-RSpec.configure do |config|
-  config.after(:each) do
-    DB.exec("DELETE FROM stylsts *;")
-  end
-end
+require("spec_helper")
 
 describe(Stylist) do
-
   describe(".all")do
     it("is empty at first") do
     expect(Stylist.all()).to(eq([]))
