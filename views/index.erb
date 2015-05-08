@@ -1,0 +1,17 @@
+<h1>Stylists</h1>
+
+<p>Current Stylists:</p>
+
+<ul>
+  <% @stylist.each() do |stylist| %>
+  <li><%= stylist.name() %></li>
+  <% end %>
+
+<p>Enter a new stylist:</p>
+
+<form action='/stylists' method='post'>
+  <label for='name'>Stylist Name</label>
+  <input id='name' name='name' type='text'>
+
+  <button type='submit'>Add Stylist</button>
+</form>
