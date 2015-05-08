@@ -19,6 +19,6 @@ describe("viewing all of the clients", {:type => :feature}) do
     client.save()
     visit("/")
     click_link("View All Clients")
-    expect(page).to have_content("client.name")
+    expect(page).to have_content(client.name)
   end
 end

@@ -22,3 +22,8 @@ post("/client") do
   stylist.save()
   erb(:success)
 end
+
+get("/clients") do
+  @clients = Client.all()
+  erb(:clients)
+end
