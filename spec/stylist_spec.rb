@@ -16,10 +16,10 @@ describe(Stylist) do
     end
 
 
-  describe("#name") do
+  describe("#stylist_name") do
     it("gives you a name of a stylist") do
       test_stylist = Stylist.new("Monica")
-      expect(test_stylist.name()).to(eq("Monica"))
+      expect(test_stylist.stylist_name()).to(eq("Monica"))
     end
   end
 
@@ -32,8 +32,8 @@ describe(Stylist) do
 
   describe("#==") do
     it("is the same stylist if the stylist has the same name") do
-      stylist1 = Stylist.new({:name => "Evelyn"})
-      stylist2 = Stylist.new({:name => "Evelyn"})
+      stylist1 = Stylist.new({:stylist_name => "Evelyn"})
+      stylist2 = Stylist.new({:stylist_name => "Evelyn"})
       expect(task1).to(eq(task2))
     end
   end

@@ -35,4 +35,26 @@ describe("client") do
       expect(client1).to(eq(client2))
     end
   end
+
+  describe(".find") do
+    it("returns a client by its ID") do
+      test_client = Client.new({:name => "Jocelyn", :id => nil})
+      test_client.save()
+      test_client2 = Client.new({:name => "Joy", :id => nil})
+      test_client2.save()
+      expect(Client.find(test_client2.id())).to(eq(test_client2))
+    end
+  end
+
+  describe("#stylists") do
+    it("returns a stylist assigned for that client") do
+      test_client = Client.new({:name => "Jocelyn", :id => nil})
+      test_client.save()
+      test_stylist = Stylist.new({:stylist_name => "Monica", :list_id => test_client.id()})
+      test_stylist.save()
+      test_stylist2 = Stylist.new({:stylist_name => "Jared", :list_id => test_client.id()})
+      test_client2.save()
+      expect(test_client.stylist()).to(eq([test_stylist, test_stylist2]))
+    end
+  end
 end

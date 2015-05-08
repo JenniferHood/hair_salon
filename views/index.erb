@@ -1,5 +1,47 @@
 <h1>Clients</h1>
 
+<p>Current Clients</p>
+
+<form action="/clients" method="post">
+  <label for="stylist_name">Assign a stylist to your client:</label>
+  <input id="name" name="stylist_name" type="text">
+
+  <button type="submit">Assign Stylist</button>
+</form>
+
+<p> Enter a new client</p>
+
+<form action="/stylist" method="post">
+  <label for="client_id">Select a Client</label>
+  <select id='client_id' name='client_id' type='text'>
+    <% @clients.each() do |client| %>
+      <option value="<%= client.id()%>"> <%= client.stylist_name() %> </option>
+    <% end %>
+  </select>
+
+  <label for="stylist_name">The name of your hair stylist</label>
+  <input id="stylist_name" name="stylist_name" type="text">
+
+  <button type="submit">Assign Stylist</button>
+</form>
+
+
+<% if @clients.any?() %>
+<p>Click on a client to see their hair stylist</p>
+
+<ul>
+  <% @clients.each do |client| %>
+  <li><a href="/clients/<%= client.id() %>"><%= client.stylist_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no clients yet!</p>
+<% end %>
+
+
+
+<!-- <h1>Clients</h1>
+
 <p>Current Clients:</p>
 
 <ul>
@@ -14,4 +56,4 @@
   <input id='name' name='name' type='text'>
 
   <button type='submit'>Add Client</button>
-</form>
+</form> -->

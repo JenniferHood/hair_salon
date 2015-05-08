@@ -14,3 +14,22 @@
   <p>There are no clients yet!</p>
 
 <% end %>
+
+<h3> Assign a stylist </h3>
+
+<form action="/stylists" method="post">
+  <input id="/list_id" type="hidden" value="<%= @client.id() %>">
+  <label for="stylist_name">Name of the stylist</label>
+  <input id="stylist_name" name="stylist_name" type="text">
+
+  <button type="submit">Assign Stylist</button>
+</form>
+
+<br>
+
+<div class="container">
+  <a href="/">Home</a>
+  <a href="/clients">View All Clients</a>
+  <a href="/clients/new">Add New Client</a>
+  <a href="/clients/new">Assign Stylist</a>
+</div>
