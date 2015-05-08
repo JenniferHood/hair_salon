@@ -16,4 +16,8 @@ define_method(:initialize) do |name|
   define_method(:save) do
     @@all_stylists.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@all_stylists = []
+  end
 end

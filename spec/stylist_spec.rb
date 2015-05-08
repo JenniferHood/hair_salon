@@ -22,4 +22,12 @@ describe(Stylist) do
       expect(Stylist.all()).to(eq([test_stylist]))
     end
   end
+
+  describe(".clear") do
+    it("empties out all of the saved stylists") do
+      Stylist.new("Monica").save()
+      Stylist.clear()
+      expect(Stylist.all()).to(eq([]))
+    end
+  end
 end
