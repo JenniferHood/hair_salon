@@ -2,6 +2,10 @@ require("rspec")
 require("Stylist")
 
 describe(Stylist) do
+  before do
+    Stylist.clear()
+  end
+  
     describe("#name") do
       it("gives you a name of a stylist") do
       test_stylist = Stylist.new("Monica")
