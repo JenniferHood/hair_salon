@@ -30,6 +30,13 @@ get("/clients/:id/edit") do
   erb(:client_edit)
 end
 
+patcj("/clients/:id") do
+  name = params.fetch("name")
+  @client = Client.find(params.fetch("id").to_i())
+  @client.update({:name => name})
+  erb(:client)
+end
+
 post("/stylists") do
   stylist_name = params.fetch("stylist_name")
   client_id = params.fetch("client_id").to_i()
