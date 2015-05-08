@@ -14,4 +14,12 @@ describe(Stylist) do
       expect(Stylist.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it("adds a stylist to the array of saved stylists") do
+      test_stylist = Stylist.new("Evelyn")
+      test_stylist.save()
+      expect(Stylist.all()).to(eq([test_stylist]))
+    end
+  end
 end

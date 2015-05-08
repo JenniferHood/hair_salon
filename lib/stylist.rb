@@ -10,4 +10,3 @@ define_method(:initialize) do |name|
   define_singleton_method(:all) do
     []
   end
-end
