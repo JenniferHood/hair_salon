@@ -37,6 +37,13 @@ patcj("/clients/:id") do
   erb(:client)
 end
 
+delete("/clients/:id") do
+  @client = Client.find(params.fetch("id").to_i())
+  @clent.delete()
+  @clients = Client.all()
+  erb(:index)
+end
+
 post("/stylists") do
   stylist_name = params.fetch("stylist_name")
   client_id = params.fetch("client_id").to_i()

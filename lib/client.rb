@@ -54,5 +54,6 @@ define_method(:update) do |attributes|
 
  define_method(:delete) do
    DB.exec("DELETE FROM clients WHERE id = #{self.id()}")
+   DB.exec("DELETE FROM stylists WHERE id = #{self.id()}")
   end
  end
