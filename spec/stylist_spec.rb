@@ -37,4 +37,13 @@ describe(Stylist) do
       expect(task1).to(eq(task2))
     end
   end
+
+  describe("#delete") do
+    it("lets you delete a client from the database") do
+      client = Client.new({:name => "Holly", :id => nil})
+      client.save()
+      client.delete()
+      expect(Client.all()).to(eq([]))
+    end
+  end
 end
