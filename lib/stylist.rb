@@ -1,23 +1,27 @@
 class Stylist
-  @@all_stylists = []
+  attr_reader(:name, :client_id)
 
-define_method(:initialize) do |name|
-    @name = name
-  end
-
-  define_method(:name) do
-    @name
+define_method(:initialize) do |attributes|
+    @name = attributes.fetch(:name)
+    @client_id = attributes.fetch(:client_list)
   end
 
   define_singleton_method(:all) do
-    @@all_stylists
+    returned_stylsts = DB.exec("SELECT * FROM stylists;")
+    stylists = []
+    returned_stylists.each() do |stylist|
+      name = stylist.fetch("name")
+      client_id = stylist.fetch("List_id").to_i()
+      stylist.push(Stylist.new({:name => name, :client_id => client_id}))
+    end
+    stylist
   end
 
   define_method(:save) do
-    @@all_stylists.push(self)
-  end
-
-  define_singleton_method(:clear) do
-    @@all_stylists = []
+    DB.exec("INSERT INTO stylists (name, client_id) VALUES ('#{@name}', #{@client_id})")
   end
 end
+
+  define_method(.==) do |another_stylist|
+    self.name().==(another_stylst.name())
+  end

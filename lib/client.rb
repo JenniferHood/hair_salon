@@ -19,9 +19,10 @@ class Client
 
   define_method(:save) do
     result = DB.exec("INSERT INTO clients (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first()fetch("id").to_i()
+    @id = result.first().fetch("id").to_i()
+  end
 
   define_method(:==) do |another_client|
-    self.name().==(another_client()).&(self.id().==(another_client.id()))
+    self.name().==(another_client()).&(self.id()).==(another_client.id())
   end
 end
